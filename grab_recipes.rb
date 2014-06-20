@@ -114,14 +114,14 @@ recipes.keys.each do |y|
               puts "    MALT: #{malts[1]}"       # Type
             end
             if line =~ /hops?/i
-              hop_array = line.strip.scan(/\((.*)\)\s+(.*?),(.*?)/)
+              hop_array = line.strip.scan(/\((.*)\)\s+(.*),.*\((.*)\)/)
               hops = hop_array[0];
               hop_amount = hops[0].split(/ /)
 
               puts "    HOPS: #{hop_amount[0]}" # Amount
               puts "    HOPS: #{hop_amount[1]}" # Unit
               puts "    HOPS: #{hops[1]}"       # Name
-              puts "    HOPS: #{hop_array}"       # Time
+              puts "    HOPS: #{hops[2]}"  # Time
             end
             puts "    HOPS: #{line.strip}" if line =~ /hops/i
           end
